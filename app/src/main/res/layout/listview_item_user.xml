@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:gravity="center_vertical|fill_vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/elementItemUserImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/ui_description_user_image"
+        android:src="@drawable/github"
+        app:civ_border_color="#05034b"
+        app:civ_border_width="1dp" />
+
+    <TextView
+        android:id="@+id/elementItemUserTextLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/elementItemUserImage"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_toEndOf="@+id/elementItemUserImage"
+        android:layout_toRightOf="@+id/elementItemUserImage"
+        android:contentDescription="@string/ui_label_user_name"
+        android:ellipsize="none"
+        android:text="@string/ui_label_user_name"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/elementItemUserImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/elementItemUserTextURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elementItemUserTextLogin"
+        android:layout_alignStart="@+id/elementItemUserTextLogin"
+        android:layout_below="@+id/elementItemUserTextLogin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/ui_label_user_url"
+        android:textIsSelectable="true"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@+id/elementItemUserImage"
+        app:layout_constraintTop_toBottomOf="@+id/elementItemUserTextLogin" />
+
+    <TextView
+        android:id="@+id/elementItemUserTextRepo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elementItemUserTextURL"
+        android:layout_alignStart="@+id/elementItemUserTextURL"
+        android:layout_below="@+id/elementItemUserTextURL"
+        android:layout_marginTop="16dp"
+        android:text="@string/ui_label_user_repository"
+        android:textIsSelectable="true"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@+id/elementItemUserImage"
+        app:layout_constraintTop_toBottomOf="@+id/elementItemUserTextURL" />
+
+</RelativeLayout>

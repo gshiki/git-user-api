@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">GIT API</string>
     <!-- GENERAL MESSAGES -->
-    <string name="msg_falha_requisicao">An error occurred while attempting a request</string>
+    <string name="msg_empty_search">Type a name so that you can search for an user</string>
+    <string name="msg_loading_users">Searching users</string>
+    <!-- GENERAL ERROR MESSAGES -->
+    <string name="error_request_empty">There were no results. Please type another name to find better results.</string>
+    <string name="error_request">An error occurred while attempting a request</string>
     <!-- UI ELEMENTS -->
     <string name="ui_placeholder_search_user">Search for GIT user</string>
     <string name="ui_text_button_search">Search</string>
@@ -12,4 +16,16 @@
     <string name="ui_label_user_repository">User Repository</string>
     <string name="ui_description_user_image">User Image</string>
     <string name="ui_label_user_bio">User Bio</string>
+    <string name="ui_label_no_value">N/A</string>
+    <string name="ui_label_user_login">User Login</string>
+    <string name="ui_label_biography">Biography</string>
+    <string name="ui_label_bio">Bio</string>
+    <string name="ui_label_company">Company</string>
+    <string name="ui_label_location">Location</string>
+    <string name="ui_label_count_repositories">Repositories : 0</string>
+    <string name="ui_label_repositories">Repositories</string>
+    <string name="ui_label_language">Language</string>
+    <string name="ui_label_unlock">Unlock</string>
+    <string name="ui_label_lock">Lock</string>
+    <string name="ui_label_description">Description</string>
 </resources>

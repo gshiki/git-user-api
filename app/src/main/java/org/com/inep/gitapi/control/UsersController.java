@@ -2,7 +2,7 @@ package org.com.inep.gitapi.control;
 
 import android.util.Log;
 
-import org.com.inep.gitapi.model.User;
+import org.com.inep.gitapi.model.UserList;
 import org.com.inep.gitapi.model.service.GitApiClient;
 import org.com.inep.gitapi.model.service.GitApiInterface;
 
@@ -11,22 +11,22 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Shiki on 28/12/2017.
+ * Created by Shiki on 27/12/2017.
  */
-public class UserController implements Callback<User> {
+public class UsersController implements Callback<UserList> {
 
-    public void searchUser(String login) {
+    public void searchUsers(String query) {
         GitApiInterface apiClient = GitApiClient.getClient();
 
-        Call<User> call = apiClient.searchUser(login);
+        Call<UserList> call = apiClient.searchUsers(query);
 
         call.enqueue(this);
     }
 
     @Override
-    public void onResponse(Call<User> call, Response<User> response) {
+    public void onResponse(Call<UserList> call, Response<UserList> response) {
         if(response.isSuccessful()) {
-            User result = response.body();
+            UserList result = response.body();
 
             Log.d("FOR DEBUG - SUCCESS", String.valueOf(result.toString()));
         } else {
@@ -35,7 +35,7 @@ public class UserController implements Callback<User> {
     }
 
     @Override
-    public void onFailure(Call<User> call, Throwable t) {
+    public void onFailure(Call<UserList> call, Throwable t) {
         Log.d("FOR DEBUG - FAILURE", String.valueOf(t.getMessage()));
     }
 
