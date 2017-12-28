@@ -21,7 +21,8 @@ public class User {
 
     private String email;
 
-    private String bio;
+    @SerializedName("bio")
+    private String biography;
 
     @SerializedName("public_repos")
     private int countRepositories;
@@ -41,12 +42,6 @@ public class User {
     @SerializedName("html_url")
     private String urlHTML;
 
-    @SerializedName("followers_url")
-    private String urlFollowers;
-
-    @SerializedName("following_url")
-    private String urlFollowing;
-
     @SerializedName("gists_url")
     private String urlGISTS;
 
@@ -59,53 +54,57 @@ public class User {
     @SerializedName("repos_url")
     private String urlRepositories;
 
-    @SerializedName("events_url")
-    private String urlEvents;
-
-    @SerializedName("received_events_url")
-    private String urlReceivedEvents;
-
     @SerializedName("site_admin")
     private boolean isAdmin;
 
+    public User(String login) {
+        this.login = login;
+    }
 
-    /** ***************************************************** */
+
     /** ********************** GETTERs ********************** */
-    /** ***************************************************** */
     public int getId() {
         return id;
     }
 
     public String getIdGravatar() {
+        if (idGravatar == null) return "";
         return idGravatar;
     }
 
     public String getType() {
+        if (type == null) return "";
         return type;
     }
 
     public String getLogin() {
+        if (login == null) return "";
         return login;
     }
 
     public String getName() {
+        if (name == null) return "";
         return name;
     }
 
     public String getCompany() {
+        if (company == null) return "";
         return company;
     }
 
     public String getLocation() {
+        if (location == null) return "";
         return location;
     }
 
     public String getEmail() {
+        if (email == null) return "";
         return email;
     }
 
-    public String getBio() {
-        return bio;
+    public String getBiography() {
+        if (biography == null) return "";
+        return biography;
     }
 
     public int getCountRepositories() {
@@ -113,60 +112,50 @@ public class User {
     }
 
     public String getCountGists() {
+        if (countGists == null) return "0";
         return countGists;
     }
 
     public String getUrlAvatar() {
+        if (urlAvatar == null) return "";
         return urlAvatar;
     }
 
     public String getUrlGIT() {
+        if (urlGIT == null) return "";
         return urlGIT;
     }
 
     public String getUrlHTML() {
+        if (urlHTML == null) return "";
         return urlHTML;
     }
 
-    public String getUrlFollowers() {
-        return urlFollowers;
-    }
-
-    public String getUrlFollowing() {
-        return urlFollowing;
-    }
-
     public String getUrlGISTS() {
+        if (urlGISTS == null) return "";
         return urlGISTS;
     }
 
     public String getUrlSubscritions() {
+        if (urlSubscritions == null) return "";
         return urlSubscritions;
     }
 
     public String getUrlOrganizations() {
+        if (urlOrganizations == null) return "";
         return urlOrganizations;
     }
 
     public String getUrlRepositories() {
+        if (urlRepositories == null) return "";
         return urlRepositories;
-    }
-
-    public String getUrlEvents() {
-        return urlEvents;
-    }
-
-    public String getUrlReceivedEvents() {
-        return urlReceivedEvents;
     }
 
     public boolean isAdmin() {
         return isAdmin;
     }
 
-    /** ***************************************************** */
     /** ********************** SETTERs ********************** */
-    /** ***************************************************** */
     public void setId(int id) {
         this.id = id;
     }
@@ -199,8 +188,8 @@ public class User {
         this.email = email;
     }
 
-    public void setBio(String bio) {
-        this.bio = bio;
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 
     public void setCountRepositories(int countRepositories) {
@@ -223,14 +212,6 @@ public class User {
         this.urlHTML = urlHTML;
     }
 
-    public void setUrlFollowers(String urlFollowers) {
-        this.urlFollowers = urlFollowers;
-    }
-
-    public void setUrlFollowing(String urlFollowing) {
-        this.urlFollowing = urlFollowing;
-    }
-
     public void setUrlGISTS(String urlGISTS) {
         this.urlGISTS = urlGISTS;
     }
@@ -245,14 +226,6 @@ public class User {
 
     public void setUrlRepositories(String urlRepositories) {
         this.urlRepositories = urlRepositories;
-    }
-
-    public void setUrlEvents(String urlEvents) {
-        this.urlEvents = urlEvents;
-    }
-
-    public void setUrlReceivedEvents(String urlReceivedEvents) {
-        this.urlReceivedEvents = urlReceivedEvents;
     }
 
     public void setAdmin(boolean admin) {

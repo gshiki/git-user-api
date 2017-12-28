@@ -1,4 +1,6 @@
-package org.com.inep.gitapi.service;
+package org.com.inep.gitapi.model.service;
+
+import org.com.inep.gitapi.util.MyConstants;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -9,14 +11,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class GitApiClient {
 
-    public static String CLIENT_BASE_URL = "https://api.github.com/";
-
     public static GitApiInterface getClient() {
 
         OkHttpClient httpClient = new OkHttpClient.Builder().build();
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(CLIENT_BASE_URL)
+                .baseUrl(MyConstants.GIT_CLIENT_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.client(httpClient).build();

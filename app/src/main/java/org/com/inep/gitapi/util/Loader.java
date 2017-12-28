@@ -3,6 +3,8 @@ package org.com.inep.gitapi.util;
 import android.app.ProgressDialog;
 import android.content.Context;
 
+import org.com.inep.gitapi.R;
+
 /**
  * Created by Shiki on 27/12/2017.
  */
@@ -14,7 +16,7 @@ public class Loader {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(context);
 
-            progressDialog.setMessage("Its loading....");
+            progressDialog.setMessage(context.getString(R.string.msg_loading_users));
             progressDialog.setCancelable(true);
         }
         progressDialog.show();
@@ -22,6 +24,8 @@ public class Loader {
 
     public static void close() {
         progressDialog.dismiss();
+
+        progressDialog = null;
     }
 
 }

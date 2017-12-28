@@ -1,5 +1,6 @@
-package org.com.inep.gitapi.service;
+package org.com.inep.gitapi.model.service;
 
+import org.com.inep.gitapi.model.Repository;
 import org.com.inep.gitapi.model.User;
 import org.com.inep.gitapi.model.UserList;
 
@@ -18,10 +19,10 @@ public interface GitApiInterface {
     @GET("search/users")
     Call<UserList> searchUsers(@Query("q") String searchFor);
 
-//    @GET("users/{userLogin}")
-//    Call<List<User>> searchUsers(@Path("userLogin") String userLogin);
+    @GET("users/{userLogin}")
+    Call<User> searchUser(@Path("userLogin") String userLogin);
 
-//    @GET("users/{user}/repos")
-//    Call<List<Repository>> requestRepos(@Path("user") String user);
+    @GET("users/{userLogin}/repos")
+    Call<List<Repository>> requestRepositories(@Path("userLogin") String userLogin);
 
 }

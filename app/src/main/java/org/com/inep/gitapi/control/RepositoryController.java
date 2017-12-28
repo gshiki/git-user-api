@@ -2,9 +2,11 @@ package org.com.inep.gitapi.control;
 
 import android.util.Log;
 
-import org.com.inep.gitapi.model.User;
+import org.com.inep.gitapi.model.Repository;
 import org.com.inep.gitapi.model.service.GitApiClient;
 import org.com.inep.gitapi.model.service.GitApiInterface;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -13,20 +15,20 @@ import retrofit2.Response;
 /**
  * Created by Shiki on 28/12/2017.
  */
-public class UserController implements Callback<User> {
+public class RepositoryController implements Callback<List<Repository>> {
 
-    public void searchUser(String login) {
+    public void requestRepositories(String userLogin) {
         GitApiInterface apiClient = GitApiClient.getClient();
 
-        Call<User> call = apiClient.searchUser(login);
+        Call<List<Repository>> call = apiClient.requestRepositories(userLogin);
 
         call.enqueue(this);
     }
 
     @Override
-    public void onResponse(Call<User> call, Response<User> response) {
+    public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
         if(response.isSuccessful()) {
-            User result = response.body();
+            List<Repository> result = response.body();
 
             Log.d("FOR DEBUG - SUCCESS", String.valueOf(result.toString()));
         } else {
@@ -35,7 +37,7 @@ public class UserController implements Callback<User> {
     }
 
     @Override
-    public void onFailure(Call<User> call, Throwable t) {
+    public void onFailure(Call<List<Repository>> call, Throwable t) {
         Log.d("FOR DEBUG - FAILURE", String.valueOf(t.getMessage()));
     }
 

@@ -4,7 +4,7 @@
     <item android:drawable="@color/colorPrimaryDark" />
 
     <item>
-        <bitmap android:src="@drawable/github"
+        <bitmap android:src="@drawable/github_white"
             android:gravity="center" />
     </item>
 
