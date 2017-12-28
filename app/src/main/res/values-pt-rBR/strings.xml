@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GIT API</string>
+    <!-- GENERAL MESSAGES -->
+    <string name="msg_falha_requisicao">Ocorreu um erro ao tentar a requisição</string>
+    <!-- UI ELEMENTS -->
+    <string name="ui_placeholder_search_user">Buscar por usuário GIT</string>
+    <string name="ui_text_button_search">Buscar</string>
+    <string name="ui_description_search_user">Digite para procurar por um usuário de GIT</string>
+    <string name="ui_text_no_search">Digite um nome no campo acima para buscar por um usuário de GIT</string>
+    <string name="ui_label_user_name">Nome do Usuário</string>
+    <string name="ui_label_user_url">URL do Usuário</string>
+    <string name="ui_label_user_repository">Repositório do Usuário</string>
+    <string name="ui_description_user_image">Imagem do Usuário</string>
+    <string name="ui_label_user_bio">User Bio</string>
+</resources>
