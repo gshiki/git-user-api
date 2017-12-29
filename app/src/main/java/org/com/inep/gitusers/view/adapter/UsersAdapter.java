@@ -1,4 +1,4 @@
-package org.com.inep.gitapi.view.adapter;
+package org.com.inep.gitusers.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.com.inep.gitapi.R;
-import org.com.inep.gitapi.model.User;
-import org.com.inep.gitapi.util.MyConstants;
-import org.com.inep.gitapi.view.UserActivity;
+import org.com.inep.gitusers.R;
+import org.com.inep.gitusers.model.User;
+import org.com.inep.gitusers.util.MyConstants;
+import org.com.inep.gitusers.view.UserActivity;
 
 import java.util.List;
 

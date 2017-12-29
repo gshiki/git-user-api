@@ -1,4 +1,4 @@
-package org.com.inep.gitapi.view.adapter;
+package org.com.inep.gitusers.view.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.com.inep.gitapi.R;
-import org.com.inep.gitapi.model.Repository;
+import org.com.inep.gitusers.R;
+import org.com.inep.gitusers.model.Repository;
 
 import java.util.List;
 

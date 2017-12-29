@@ -1,6 +1,6 @@
-package org.com.inep.gitapi.model.service;
+package org.com.inep.gitusers.model.service;
 
-import org.com.inep.gitapi.util.MyConstants;
+import org.com.inep.gitusers.util.MyConstants;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

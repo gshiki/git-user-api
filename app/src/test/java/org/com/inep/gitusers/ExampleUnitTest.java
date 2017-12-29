@@ -1,4 +1,4 @@
-package org.com.inep.gitapi;
+package org.com.inep.gitusers;
 
 import org.junit.Test;
 

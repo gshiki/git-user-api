@@ -5,6 +5,7 @@
     android:id="@+id/activityMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:elevation="2dp"
     android:gravity="center_vertical|fill_vertical">
 
     <TextView
@@ -41,6 +42,11 @@
     <SearchView
         android:id="@+id/elementMainSearchViewUsers"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="#eeeeee"
+        android:elevation="6dp"
+        android:iconifiedByDefault="false"
+        android:queryBackground="@android:color/transparent"
+        android:queryHint="@string/ui_placeholder_search_user" />
 
 </RelativeLayout>

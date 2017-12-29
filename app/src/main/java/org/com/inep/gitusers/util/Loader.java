@@ -1,9 +1,9 @@
-package org.com.inep.gitapi.util;
+package org.com.inep.gitusers.util;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 
-import org.com.inep.gitapi.R;
+import org.com.inep.gitusers.R;
 
 /**
  * Created by Shiki on 27/12/2017.

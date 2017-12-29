@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GIT API</string>
+    <string name="app_name">GIT USER API</string>
     <!-- GENERAL MESSAGES -->
     <string name="msg_empty_search">Type a name so that you can search for an user</string>
     <string name="msg_loading_users">Searching users</string>

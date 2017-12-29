@@ -1,8 +1,8 @@
-package org.com.inep.gitapi.model.service;
+package org.com.inep.gitusers.model.service;
 
-import org.com.inep.gitapi.model.Repository;
-import org.com.inep.gitapi.model.User;
-import org.com.inep.gitapi.model.UserList;
+import org.com.inep.gitusers.model.Repository;
+import org.com.inep.gitusers.model.User;
+import org.com.inep.gitusers.model.UserList;
 
 import java.util.List;
 

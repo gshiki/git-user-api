@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GIT API</string>
+    <string name="app_name">GIT USER API</string>
     <!-- GENERAL MESSAGES -->
     <string name="msg_empty_search">Digite algum nome para realizar a busca por usuários GIT</string>
     <string name="msg_loading_users">Buscando usuários</string>
@@ -24,8 +24,8 @@
     <string name="ui_label_location">Localização</string>
     <string name="ui_label_count_repositories">Repositórios : 0</string>
     <string name="ui_label_repositories">Repositórios</string>
-    <string name="ui_label_language">Language</string>
-    <string name="ui_label_unlock">Unlock</string>
-    <string name="ui_label_lock">Lock</string>
-    <string name="ui_label_description">Description</string>
+    <string name="ui_label_language">Linguagem</string>
+    <string name="ui_label_unlock">Público</string>
+    <string name="ui_label_lock">Privdo</string>
+    <string name="ui_label_description">Descrição</string>
 </resources>

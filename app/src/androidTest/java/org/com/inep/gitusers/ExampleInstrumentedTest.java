@@ -1,4 +1,4 @@
-package org.com.inep.gitapi;
+package org.com.inep.gitusers;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("org.com.inep.gitapi", appContext.getPackageName());
+        assertEquals("org.com.inep.gitusers", appContext.getPackageName());
     }
 }

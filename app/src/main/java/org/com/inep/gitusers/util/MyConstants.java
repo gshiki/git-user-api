@@ -1,4 +1,4 @@
-package org.com.inep.gitapi.util;
+package org.com.inep.gitusers.util;
 
 /**
  * Created by Shiki on 28/12/2017.

@@ -1,10 +1,10 @@
-package org.com.inep.gitapi.control;
+package org.com.inep.gitusers.control;
 
 import android.util.Log;
 
-import org.com.inep.gitapi.model.Repository;
-import org.com.inep.gitapi.model.service.GitApiClient;
-import org.com.inep.gitapi.model.service.GitApiInterface;
+import org.com.inep.gitusers.model.Repository;
+import org.com.inep.gitusers.model.service.GitApiClient;
+import org.com.inep.gitusers.model.service.GitApiInterface;
 
 import java.util.List;
 

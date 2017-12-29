@@ -1,20 +1,22 @@
-package org.com.inep.gitapi.view;
+package org.com.inep.gitusers.view;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.Window;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.com.inep.gitapi.R;
-import org.com.inep.gitapi.control.UsersController;
-import org.com.inep.gitapi.model.UserList;
-import org.com.inep.gitapi.util.Loader;
-import org.com.inep.gitapi.view.adapter.UsersAdapter;
+import org.com.inep.gitusers.R;
+import org.com.inep.gitusers.control.UsersController;
+import org.com.inep.gitusers.model.UserList;
+import org.com.inep.gitusers.util.Loader;
+import org.com.inep.gitusers.view.adapter.UsersAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +26,7 @@ import retrofit2.Response;
 /**
  * Main
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @BindView(R.id.elementMainSearchViewUsers)
     SearchView searchViewUsers;
@@ -42,10 +44,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
-
     }
 
     @Override
@@ -58,10 +61,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setSearchViewConfig() {
-        searchViewUsers.setIconified(false);
         searchViewUsers.setQueryHint(getString(R.string.ui_placeholder_search_user));
 
         /** **************** EVENTOS DE ELEMENTOS *************** */
+        searchViewUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchViewUsers.setIconified(false);
+            }
+        });
+
         searchViewUsers.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String text) {
@@ -116,7 +125,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String text) {
-                return false;
+                if (text.isEmpty()) {
+                    recyclerViewUsers.setVisibility(View.GONE);
+
+                    textViewEmpty.setVisibility(View.VISIBLE);
+                }
+                return true;
             }
         });
     }

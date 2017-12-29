@@ -1,4 +1,4 @@
-package org.com.inep.gitapi.model;
+package org.com.inep.gitusers.model;
 
 import com.google.gson.annotations.SerializedName;
 

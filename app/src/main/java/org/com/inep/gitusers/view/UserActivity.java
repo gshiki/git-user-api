@@ -1,8 +1,9 @@
-package org.com.inep.gitapi.view;
+package org.com.inep.gitusers.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -10,14 +11,14 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import org.com.inep.gitapi.R;
-import org.com.inep.gitapi.control.RepositoryController;
-import org.com.inep.gitapi.control.UserController;
-import org.com.inep.gitapi.model.Repository;
-import org.com.inep.gitapi.model.User;
-import org.com.inep.gitapi.util.Loader;
-import org.com.inep.gitapi.util.MyConstants;
-import org.com.inep.gitapi.view.adapter.RepositoryAdapter;
+import org.com.inep.gitusers.R;
+import org.com.inep.gitusers.control.RepositoryController;
+import org.com.inep.gitusers.control.UserController;
+import org.com.inep.gitusers.model.Repository;
+import org.com.inep.gitusers.model.User;
+import org.com.inep.gitusers.util.Loader;
+import org.com.inep.gitusers.util.MyConstants;
+import org.com.inep.gitusers.view.adapter.RepositoryAdapter;
 
 import java.util.List;
 
@@ -61,6 +62,8 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_user);
 
