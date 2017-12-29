@@ -1,6 +1,8 @@
 package org.com.inep.gitusers.view;
 
 import android.content.Intent;
+import android.support.annotation.CallSuper;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
@@ -24,6 +26,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -32,38 +35,51 @@ import retrofit2.Response;
  */
 public class UserActivity extends AppCompatActivity {
 
+    @NonNull
     private String userLogin;
 
+    @NonNull
+    private Unbinder unbinder;
+
+    @NonNull
     @BindView(R.id.elementUserTextViewName)
     TextView textViewUserName;
 
+    @NonNull
     @BindView(R.id.elementUserTextViewLogin)
     TextView textViewLogin;
 
+    @NonNull
     @BindView(R.id.elementUserImage)
     ImageView imageViewUser;
 
+    @NonNull
     @BindView(R.id.elementUserTextViewUserBio)
     TextView textViewUserBiography;
 
+    @NonNull
     @BindView(R.id.elementUserTextViewUserCompany)
     TextView textViewUserCompany;
 
+    @NonNull
     @BindView(R.id.elementUserTextViewUserLocation)
     TextView textViewUserLocation;
 
+    @NonNull
     @BindView(R.id.elementUserTextViewCountRepositories)
     TextView textViewCountRepositories;
 
+    @NonNull
     @BindView(R.id.elementUserListViewRepositories)
     ListView listViewRepositories;
 
 
+    @CallSuper
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_user);
 
@@ -74,6 +90,7 @@ public class UserActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @CallSuper
     @Override
     protected void onResume() {
         super.onResume();
@@ -85,6 +102,12 @@ public class UserActivity extends AppCompatActivity {
         setUserRepositories();
 
         Loader.close();
+    }
+
+    @CallSuper
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     private void setUserInformation() {

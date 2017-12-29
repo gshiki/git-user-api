@@ -3,6 +3,8 @@ package org.com.inep.gitusers.view;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,20 +32,26 @@ import retrofit2.Response;
  */
 public class MainActivity extends Activity {
 
+    @NonNull
     @BindView(R.id.elementMainSearchViewUsers)
     SearchView searchViewUsers;
 
+    @NonNull
     @BindView(R.id.elementMainRecyclerView)
     RecyclerView recyclerViewUsers;
 
+    @NonNull
     @BindView(R.id.elementMainTextViewEmpty)
     TextView textViewEmpty;
 
+    @NonNull
     LinearLayoutManager linearLayoutManager;
 
+    @NonNull
     private Unbinder unbinder;
 
 
+    @CallSuper
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +63,7 @@ public class MainActivity extends Activity {
         unbinder = ButterKnife.bind(this);
     }
 
+    @CallSuper
     @Override
     protected void onResume() {
         super.onResume();
@@ -62,6 +71,14 @@ public class MainActivity extends Activity {
         setSearchViewConfig();
 
         setRecyclerViewConfig();
+    }
+
+    @CallSuper
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        unbinder.unbind();
     }
 
     private void setSearchViewConfig() {
@@ -91,10 +108,7 @@ public class MainActivity extends Activity {
                                     recyclerViewUsers.setVisibility(View.GONE);
 
                                     textViewEmpty.setVisibility(View.VISIBLE);
-
                                     textViewEmpty.setText(getString(R.string.error_request_empty));
-
-                                    //Toast.makeText(getApplicationContext(), R.string.error_request, Toast.LENGTH_SHORT).show();
                                 }
                                 Loader.close();
                             } else {
@@ -111,7 +125,6 @@ public class MainActivity extends Activity {
 
                 } else {
                     textViewEmpty.setVisibility(View.VISIBLE);
-
                     textViewEmpty.setText(getString(R.string.ui_text_no_search));
 
                     Toast.makeText(getApplicationContext(), R.string.msg_empty_search, Toast.LENGTH_SHORT).show();
@@ -132,8 +145,6 @@ public class MainActivity extends Activity {
     }
 
     private void setRecyclerViewConfig() {
-        recyclerViewUsers = (RecyclerView) findViewById(R.id.elementMainRecyclerView);
-
         recyclerViewUsers.setHasFixedSize(true);
 
         linearLayoutManager = new LinearLayoutManager(this);

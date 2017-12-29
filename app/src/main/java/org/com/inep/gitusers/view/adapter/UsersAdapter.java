@@ -2,6 +2,7 @@ package org.com.inep.gitusers.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.CallSuper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,9 @@ import org.com.inep.gitusers.view.UserActivity;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Shiki on 27/12/2017.
  */
@@ -25,30 +29,26 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
 
     private Context context;
 
-    private RecyclerView recyclerViewUsers;
-
     private List<User> users;
 
+    private RecyclerView recyclerViewUsers;
+
     public UsersAdapter(Context context, RecyclerView recyclerViewUsers, List<User> users) {
+        this.users = users;
         this.context = context;
         this.recyclerViewUsers = recyclerViewUsers;
-        this.users = users;
     }
 
     /** *********************** HOLDER *********************** */
-    class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewUserLogin;
-        TextView textViewUserURL;
-        TextView textViewUserRepo;
-        ImageView imageViewUserIcon;
+    static class MyViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.elementItemUserTextLogin) TextView textViewUserLogin;
+        @BindView(R.id.elementItemUserTextURL) TextView textViewUserURL;
+        @BindView(R.id.elementItemUserImage) ImageView imageViewUserIcon;
 
         MyViewHolder(View view) {
             super(view);
 
-            textViewUserLogin = view.findViewById(R.id.elementItemUserTextLogin);
-            textViewUserURL = view.findViewById(R.id.elementItemUserTextURL);
-            textViewUserRepo = view.findViewById(R.id.elementItemUserTextRepo);
-            imageViewUserIcon = view.findViewById(R.id.elementItemUserImage);
+            ButterKnife.bind(this, view);
         }
     }
 
@@ -64,7 +64,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
 
         holder.textViewUserLogin.setText(user.getLogin());
         holder.textViewUserURL.setText(user.getUrlHTML());
-        holder.textViewUserRepo.setText(user.getUrlRepositories());
 
         Picasso.with(context).load(user.getUrlAvatar()).fit()
                 .placeholder(R.drawable.github)
@@ -74,13 +73,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
 
     @Override
     public UsersAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_user, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_user, parent, false);
 
-        v.setOnClickListener(new MyOnClickListener());
+        view.setOnClickListener(new MyOnClickListener());
 
-        MyViewHolder vh = new MyViewHolder(v);
+        MyViewHolder viewHolder = new MyViewHolder(view);
 
-        return vh;
+        return viewHolder;
     }
 
     /** *********************** EVENTs ********************** */
@@ -94,32 +93,10 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
             Intent intent = new Intent(context, UserActivity.class);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            
+
             intent.putExtra(MyConstants.PARAM_ACTIVITY_USER_LOGIN, user.getLogin());
 
             context.startActivity(intent);
         }
     }
-
-
-    /** ********************** GETTERs ********************** */
-    public Context getContext() {
-        return context;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    /** ********************** SETTERs ********************** */
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-
-
 }

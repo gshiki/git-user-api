@@ -37,24 +37,36 @@ dependencies {
 
     // CONFIG
     compile 'com.android.support:multidex:1.0.1'
-
+    // ANNOTATIONS
+    compile 'com.android.support:support-annotations:24.2.0'
     // V7
     compile 'com.android.support:appcompat-v7:26.1.0'
-    // REST - RETROFIT, GSON
+
+    // ***** REST
+    // RETROFIT
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    // GSON
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    // LAYOUT - BUTTER KNIFE, RECYCLER VIEW, CARD VIEW
+
+    // ***** LAYOUT
+    // BUTTERKNIFE
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-
+    // RX
+    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.1.1'
+    // RECYCLER
     implementation 'com.android.support:recyclerview-v7:26.1.0'
-
+    // CARDVIEW
     compile 'com.android.support:cardview-v7:26.1.0'
 
-    // IMAGENS - PICASSO, CIRCLE IMAGE VIEW
+    // ***** IMAGENS
+    // PICASSO
     compile 'com.squareup.picasso:picasso:2.5.2'
+    // CIRCLE VIEW
     compile 'de.hdodenhof:circleimageview:2.2.0'
-    // TESTES - JUNIT
+
+    // ***** TESTES
+    // JUNIT
     testCompile 'junit:junit:4.12'
     testCompile 'org.hamcrest:hamcrest-library:1.3'
 }

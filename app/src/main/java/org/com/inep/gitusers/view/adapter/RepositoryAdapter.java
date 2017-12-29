@@ -15,6 +15,9 @@ import org.com.inep.gitusers.model.Repository;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Shiki on 28/12/2017.
  */
@@ -25,29 +28,22 @@ public class RepositoryAdapter extends BaseAdapter {
 
     private List<Repository> repositories;
 
-
     public RepositoryAdapter(Context context, List<Repository> repositories) {
         this.context = context;
-
         this.repositories = repositories;
     }
 
     /** *********************** HOLDER *********************** */
-    class MyViewHolder {
-        ImageView imageViewRepository;
-        ImageView imageViewLock;
-        ImageView imageViewUnlock;
-        TextView textViewName;
-        TextView textViewLanguage;
-        TextView textViewDescription;
+    static class MyViewHolder {
+        @BindView(R.id.elementItemRepositoryImage) ImageView imageViewRepository;
+        @BindView(R.id.elementItemRepositoryImageLock) ImageView imageViewLock;
+        @BindView(R.id.elementItemRepositoryImageUnlock) ImageView imageViewUnlock;
+        @BindView(R.id.elementItemRepositoryTextViewName) TextView textViewName;
+        @BindView(R.id.elementItemRepositoryTextViewLanguage) TextView textViewLanguage;
+        @BindView(R.id.elementItemRepositorytextViewDescription) TextView textViewDescription;
 
         MyViewHolder(View view) {
-            imageViewRepository = view.findViewById(R.id.elementItemRepositoryImage);
-            imageViewLock = view.findViewById(R.id.elementItemRepositoryImageLock);
-            imageViewUnlock = view.findViewById(R.id.elementItemRepositoryImageUnlock);
-            textViewName = view.findViewById(R.id.elementItemRepositoryTextViewName);
-            textViewLanguage = view.findViewById(R.id.elementItemRepositoryTextViewLanguage);
-            textViewDescription = view.findViewById(R.id.elementItemRepositorytextViewDescription);
+            ButterKnife.bind(this, view);
         }
     }
 

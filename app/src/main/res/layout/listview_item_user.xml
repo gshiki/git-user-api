@@ -28,7 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/elementItemUserImage"
         android:layout_marginEnd="16dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="16dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/elementItemUserImage"
         android:layout_toRightOf="@+id/elementItemUserImage"
         android:contentDescription="@string/ui_label_user_name"
@@ -48,25 +50,11 @@
         android:layout_below="@+id/elementItemUserTextLogin"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/ui_label_user_url"
+        android:textColor="@android:color/darker_gray"
         android:textIsSelectable="true"
-        android:textColor="@android:color/black"
         app:layout_constraintStart_toEndOf="@+id/elementItemUserImage"
         app:layout_constraintTop_toBottomOf="@+id/elementItemUserTextLogin" />
-
-    <TextView
-        android:id="@+id/elementItemUserTextRepo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/elementItemUserTextURL"
-        android:layout_alignStart="@+id/elementItemUserTextURL"
-        android:layout_below="@+id/elementItemUserTextURL"
-        android:layout_marginTop="16dp"
-        android:text="@string/ui_label_user_repository"
-        android:textIsSelectable="true"
-        android:textColor="@android:color/black"
-        app:layout_constraintStart_toEndOf="@+id/elementItemUserImage"
-        app:layout_constraintTop_toBottomOf="@+id/elementItemUserTextURL" />
 
 </RelativeLayout>
