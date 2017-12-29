@@ -20,6 +20,8 @@ import org.com.inep.gitusers.view.adapter.UsersAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -39,6 +41,8 @@ public class MainActivity extends Activity {
 
     LinearLayoutManager linearLayoutManager;
 
+    private Unbinder unbinder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,7 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
     }
 
     @Override
@@ -62,14 +66,6 @@ public class MainActivity extends Activity {
 
     private void setSearchViewConfig() {
         searchViewUsers.setQueryHint(getString(R.string.ui_placeholder_search_user));
-
-        /** **************** EVENTOS DE ELEMENTOS *************** */
-        searchViewUsers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                searchViewUsers.setIconified(false);
-            }
-        });
 
         searchViewUsers.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -143,6 +139,13 @@ public class MainActivity extends Activity {
         linearLayoutManager = new LinearLayoutManager(this);
 
         recyclerViewUsers.setLayoutManager(linearLayoutManager);
+    }
+
+    /** **************** EVENTOS DE ELEMENTOS *************** */
+    @OnClick(R.id.elementMainSearchViewUsers)
+    public void focusSearchView(View view) {
+        if (searchViewUsers != null)
+            searchViewUsers.setIconified(false);
     }
 
 }
