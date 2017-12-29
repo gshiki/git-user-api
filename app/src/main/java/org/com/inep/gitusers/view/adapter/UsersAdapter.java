@@ -94,6 +94,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
             Intent intent = new Intent(context, UserActivity.class);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            
             intent.putExtra(MyConstants.PARAM_ACTIVITY_USER_LOGIN, user.getLogin());
 
             context.startActivity(intent);
