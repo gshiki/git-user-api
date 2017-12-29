@@ -5,8 +5,11 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +23,6 @@ import org.com.inep.gitusers.model.Repository;
 import org.com.inep.gitusers.model.User;
 import org.com.inep.gitusers.util.Loader;
 import org.com.inep.gitusers.util.MyConstants;
-import org.com.inep.gitusers.view.adapter.RepositoryAdapter;
 
 import java.util.List;
 
@@ -70,8 +72,12 @@ public class UserActivity extends AppCompatActivity {
     TextView textViewCountRepositories;
 
     @NonNull
-    @BindView(R.id.elementUserListViewRepositories)
-    ListView listViewRepositories;
+    @BindView(R.id.elementUserTextViewNoRepositories)
+    TextView textViewNoRepositories;
+
+    @NonNull
+    @BindView(R.id.elementUserLinearLayoutRepositories)
+    LinearLayout linearLayoutRepositories;
 
 
     @CallSuper
@@ -159,21 +165,30 @@ public class UserActivity extends AppCompatActivity {
 
     private void setUserRepositories() {
         if (userLogin != null) {
-            if (listViewRepositories != null) {
-
+            if (linearLayoutRepositories != null) {
                 RepositoryController repositoryController = new RepositoryController() {
+
                     @Override
                     public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
                         if(response.isSuccessful()) {
                             List<Repository> repositories = response.body();
-
+//
                             if (repositories != null) {
-                                RepositoryAdapter repositoryAdapter = new RepositoryAdapter(getApplicationContext(), repositories);
+                                for (Repository repository : repositories) {
+                                    LayoutInflater inflater = getLayoutInflater();
 
-                                listViewRepositories.setAdapter(repositoryAdapter);
+                                    View view = inflater.inflate(R.layout.listview_item_repository, null);
 
-                                repositoryAdapter.notifyDataSetChanged();
+                                    setUserRepositoryInformations(view, repository);
+
+                                    linearLayoutRepositories.addView(view);
+                                }
+                                textViewNoRepositories.setVisibility(View.GONE);
+                                linearLayoutRepositories.setVisibility(View.VISIBLE);
                             } else {
+                                textViewNoRepositories.setVisibility(View.VISIBLE);
+                                linearLayoutRepositories.setVisibility(View.GONE);
+
                                 Toast.makeText(getApplicationContext(), R.string.error_request, Toast.LENGTH_SHORT).show();
                             }
                         } else {
@@ -183,12 +198,32 @@ public class UserActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<List<Repository>> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                        super.onFailure(call, t);
                     }
+
                 };
                 repositoryController.requestRepositories(userLogin);
             }
         }
+    }
+
+    private void setUserRepositoryInformations(View view, Repository repository) {
+        ImageView imageViewLock = (ImageView) view.findViewById(R.id.elementItemRepositoryImageLock);
+        ImageView imageViewUnlock = (ImageView) view.findViewById(R.id.elementItemRepositoryImageUnlock);
+        TextView textViewName = (TextView) view.findViewById(R.id.elementItemRepositoryTextViewName);
+        TextView textViewLanguage = (TextView) view.findViewById(R.id.elementItemRepositoryTextViewLanguage);
+        TextView textViewDescription = (TextView) view.findViewById(R.id.elementItemRepositorytextViewDescription);
+
+        if (repository.isPrivate()) {
+            imageViewLock.setVisibility(View.VISIBLE);
+            imageViewUnlock.setVisibility(View.GONE);
+        } else {
+            imageViewLock.setVisibility(View.GONE);
+            imageViewUnlock.setVisibility(View.VISIBLE);
+        }
+        textViewName.setText(repository.getFullName());
+        textViewLanguage.setText( (!repository.getLanguage().isEmpty() ? repository.getLanguage() : getString(R.string.ui_label_no_value) ) );
+        textViewDescription.setText( (!repository.getDescription().isEmpty() ? repository.getDescription() : getString(R.string.ui_label_no_value) ) );
     }
 
 }

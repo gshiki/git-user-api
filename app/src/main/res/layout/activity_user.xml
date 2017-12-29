@@ -1,187 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="fill_parent">
 
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/elementUserImage"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/ui_description_user_image"
-        android:src="@drawable/github"
-        app:civ_border_color="#05034b"
-        app:civ_border_width="1dp" />
-
-    <TextView
-        android:id="@+id/elementUserTextViewName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/elementUserImage"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/elementUserImage"
-        android:layout_toRightOf="@+id/elementUserImage"
-        android:text="@string/ui_label_user_name"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/elementUserTextViewLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/elementUserTextViewName"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_toEndOf="@+id/elementUserImage"
-        android:layout_toRightOf="@+id/elementUserImage"
-        android:text="@string/ui_label_user_login" />
-
-    <View
-        android:id="@+id/elementUserViewInfo"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/elementUserImage"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/darker_gray" />
+        android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/elementUserViewRepos"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentTop="false"
-        android:layout_below="@+id/elementUserTextViewCountRepositories"
-        android:background="@android:color/darker_gray" />
-
-    <View
-        android:id="@+id/elementUserViewBeforeRepos"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentTop="false"
-        android:layout_below="@+id/elementUserLayoutInfo"
-        android:background="@android:color/darker_gray" />
-
-    <TextView
-        android:id="@+id/elementUserTextViewCountRepositories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/elementUserLayoutInfo"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/ui_label_count_repositories"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <RelativeLayout
-        android:id="@+id/elementUserLayoutInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="false"
-        android:layout_below="@+id/elementUserViewInfo"
-        android:minHeight="100dp">
-
-        <TextView
-            android:id="@+id/elementUserTextViewBiografy"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/elementUserContainerBasics"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/ui_label_biography"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:minHeight="100dp"
+            android:paddingBottom="8dp">
 
-        <TextView
-            android:id="@+id/elementUserTextViewUserBio"
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/elementUserImage"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/ui_description_user_image"
+                android:src="@drawable/github"
+                app:civ_border_color="#05034b"
+                app:civ_border_width="1dp" />
+
+            <TextView
+                android:id="@+id/elementUserTextViewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/elementUserImage"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/elementUserImage"
+                android:layout_toRightOf="@+id/elementUserImage"
+                android:text="@string/ui_label_user_name"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/elementUserTextViewLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/elementUserTextViewName"
+                android:layout_alignStart="@+id/elementUserTextViewName"
+                android:layout_below="@+id/elementUserTextViewName"
+                android:layout_marginLeft="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/ui_label_user_login" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/elementUserContainerInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/elementUserTextViewBiografy"
-            android:layout_alignStart="@+id/elementUserTextViewBiografy"
-            android:layout_below="@+id/elementUserTextViewBiografy"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/elementUserContainerBasics"
             android:layout_marginTop="8dp"
-            android:text="@string/ui_label_bio"
-            android:textSize="12sp" />
+            android:minHeight="100dp"
+            android:paddingEnd="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingStart="8dp">
+
+            <TextView
+                android:id="@+id/elementUserTextViewBiografy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/ui_label_biography"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/elementUserTextViewUserBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/elementUserTextViewBiografy"
+                android:layout_alignStart="@+id/elementUserTextViewBiografy"
+                android:layout_below="@+id/elementUserTextViewBiografy"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/ui_label_bio"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/elementUserTextViewCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/elementUserTextViewUserBio"
+                android:layout_alignStart="@+id/elementUserTextViewUserBio"
+                android:layout_below="@+id/elementUserTextViewUserBio"
+                android:layout_marginTop="12dp"
+                android:text="@string/ui_label_company"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/elementUserTextViewUserCompany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/elementUserTextViewCompany"
+                android:layout_alignStart="@+id/elementUserTextViewCompany"
+                android:layout_below="@+id/elementUserTextViewCompany"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/ui_label_company"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/elementUserTextViewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/elementUserTextViewUserCompany"
+                android:layout_alignStart="@+id/elementUserTextViewUserCompany"
+                android:layout_below="@+id/elementUserTextViewUserCompany"
+                android:layout_marginTop="12dp"
+                android:text="@string/ui_label_location"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/elementUserTextViewUserLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/elementUserTextViewLocation"
+                android:layout_alignStart="@+id/elementUserTextViewLocation"
+                android:layout_below="@+id/elementUserTextViewLocation"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/ui_label_location" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/elementUserLinearLayoutRepositories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/elementUserTextViewCountRepositories"
+            android:minHeight="100dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/elementUserTextViewCompany"
+            android:id="@+id/elementUserTextViewNoRepositories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/elementUserTextViewUserBio"
-            android:layout_alignStart="@+id/elementUserTextViewUserBio"
-            android:layout_below="@+id/elementUserTextViewUserBio"
-            android:layout_marginTop="12dp"
-            android:text="@string/ui_label_company"
-            android:textColor="@android:color/black"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/elementUserContainerInfo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="96dp"
+            android:contentDescription="@string/ui_label_no_value"
+            android:text="@string/ui_label_no_value"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/elementUserTextViewUserCompany"
+            android:id="@+id/elementUserTextViewCountRepositories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/elementUserTextViewCompany"
-            android:layout_alignStart="@+id/elementUserTextViewCompany"
-            android:layout_below="@+id/elementUserTextViewCompany"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/ui_label_company"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/elementUserTextViewLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/elementUserTextViewUserCompany"
-            android:layout_alignStart="@+id/elementUserTextViewUserCompany"
-            android:layout_below="@+id/elementUserTextViewUserCompany"
-            android:layout_marginTop="12dp"
-            android:text="@string/ui_label_location"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/elementUserTextViewUserLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/elementUserTextViewLocation"
-            android:layout_alignStart="@+id/elementUserTextViewLocation"
-            android:layout_below="@+id/elementUserTextViewLocation"
+            android:layout_below="@+id/elementUserContainerInfo"
             android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="8dp"
-            android:text="@string/ui_label_location" />
+            android:text="@string/ui_label_count_repositories"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
 
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/elementUserListViewRepositories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="false"
-        android:layout_below="@id/elementUserViewRepos"
-        android:minHeight="100dp" />
-
-
-</RelativeLayout>
+</ScrollView>

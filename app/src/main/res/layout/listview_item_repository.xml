@@ -3,19 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#f0f0f0"
     android:gravity="center_vertical|fill_vertical">
 
 
+    <View
+        android:id="@+id/elementUserViewSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/elementItemRepositorytextViewDescription"
+        android:background="@android:color/darker_gray" />
+
     <ImageView
         android:id="@+id/elementItemRepositoryImage"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="false"
-        android:layout_below="@+id/elementItemRepositoryImageUnlock"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/ui_label_user_repository"
         app:srcCompat="@drawable/repository" />
 
@@ -23,14 +34,19 @@
         android:id="@+id/elementItemRepositoryTextViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/elementItemRepositoryImageUnlock"
         android:layout_alignParentTop="false"
-        android:layout_below="@+id/elementItemRepositoryImageUnlock"
+        android:layout_alignRight="@+id/elementItemRepositoryImageUnlock"
+        android:layout_alignTop="@+id/elementItemRepositoryImage"
+        android:layout_marginEnd="46dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginRight="46dp"
         android:layout_marginStart="16dp"
         android:layout_toEndOf="@+id/elementItemRepositoryImage"
         android:layout_toRightOf="@+id/elementItemRepositoryImage"
         android:text="@string/ui_label_user_repository"
         android:textColor="@android:color/black"
+        android:textIsSelectable="true"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -40,9 +56,12 @@
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignTop="@+id/elementItemRepositoryImage"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:contentDescription="@string/ui_label_lock"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:srcCompat="@drawable/lock" />
 
     <ImageView
@@ -51,7 +70,10 @@
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignTop="@+id/elementItemRepositoryImage"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:contentDescription="@string/ui_label_unlock"
         android:visibility="visible"
         app:srcCompat="@drawable/unlock" />
